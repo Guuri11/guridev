@@ -1,0 +1,59 @@
+{
+  "readmeUrl": "https://raw.githubusercontent.com/cveinnt/cveinnt/master/README.md",
+  "title": "guri.dev",
+  "name": "Sergio Gurillo Corral",
+  "ascii": "guridev",
+  "social": {
+    "github": "Guuri11",
+    "linkedin": "https://www.linkedin.com/in/sergio-gurillo-corral/"
+  },
+  "current_job": "We Are Exams",
+  "current_job_web": "https://examsforzoom.com/",
+  "email": "sergio.gurillo11@gmail.com",
+  "ps1_hostname": "guridev",
+  "ps1_username": "visitor",
+  "repo": "https://github.com/Guuri11/portfolio",
+  "resume_url": "https://drive.google.com/file/d/1qm1mA770831bCUqq-tM-9yFdAcRtdhXr/view?usp=sharing",
+  "colors": {
+    "light": {
+      "background": "#FFFFDB",
+      "foreground": "#282a36",
+      "yellow": "#ffb86c",
+      "green": "#50fa7b",
+      "gray": "#8B6BB9",
+      "blue": "#67AFC0",
+      "red": "#ff5555"
+    },
+    "dark": {
+      "background": "#282a36",
+      "foreground": "#f8f8f2",
+      "yellow": "#ffb86c",
+      "green": "#50fa7b",
+      "gray": "#bd93f9",
+      "blue": "#8be9fd",
+      "red": "#ff5555"
+    }
+  },
+  "commands" : {
+    "about": "Know better about my experience & hobbies",
+    "banner": "Show initial banner",
+    "bing": "Open bing website, optionally you can look for a topic - Examples: bing | bing Sergio Gurillo",
+    "cd": "In process...",
+    "date": "Get current time",
+    "echo": "Display whatever you want through the console - Example: echo Hello World!",
+    "email": "Send an email to me",
+    "github": "Open my github account website",
+    "help": "Show commands information",
+    "linkedin": "Open my linkedin account",
+    "ls": "In process...",
+    "projects": "List of my Github projects with description",
+    "quote": "Generate a randome quote",
+    "readme": "Open my README profile file",
+    "reddit": "look for a reddit topic - Example: reddit chuck norris memes",
+    "resume": "Open my CV",
+    "sudo": "Super user",
+    "sumfetch": "Summary fetch",
+    "weather": "Get weather from some location - Example: weather Valencia",
+    "whoami": "Get current user name"
+  }
+}
