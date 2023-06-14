@@ -9,13 +9,6 @@ export const help = async (args: string[]): Promise<string> => {
   Object.keys(config.commands).sort().forEach(command => {
     c += `<span style="color: ${config.colors.dark.blue}">${command}</span> --- ${config.commands[command]}\n`;
   })
-  // for (let i = 1; i <= Object.keys(config.commands).sort().length; i++) {
-  //   if (i % 7 === 0) {
-  //     c += Object.keys(bin).sort()[i - 1] + '\n';
-  //   } else {
-  //     c += Object.keys(bin).sort()[i - 1] + ' ';
-  //   }
-  // }
   return `Welcome! Here are all the available commands:
 \n${c}
 <span style="color: ${config.colors.dark.blue}">[tab]</span>: trigger completion.

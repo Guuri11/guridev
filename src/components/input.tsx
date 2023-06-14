@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { commandExists } from '../utils/commandExists';
 import { shell } from '../utils/shell';
-import { handleTabCompletion } from '../utils/tabCompletion';
+import { handleTabCompletion, showSuggestions } from '../utils/tabCompletion';
 import { Ps1 } from './Ps1';
+import config from '../../config.json';
 
 export const Input = ({
   inputRef,
@@ -15,6 +16,9 @@ export const Input = ({
   setLastCommandIndex,
   clearHistory,
 }) => {
+  const [suggestions, setSuggestions] = useState([]);
+  const [suggestionBoxDistance, setSuggestionBoxDistance] = useState(0);
+
   const onSubmit = async (event: React.KeyboardEvent<HTMLInputElement>) => {
     const commands: [string] = history
       .map(({ command }) => command)
@@ -76,6 +80,10 @@ export const Input = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
     setCommand(value);
+    setSuggestions(showSuggestions(value));
+    if (value.length < 22) {
+      setSuggestionBoxDistance(value.length * 11);
+    }
   };
 
   return (
@@ -83,23 +91,34 @@ export const Input = ({
       <label htmlFor="prompt" className="flex-shrink">
         <Ps1 />
       </label>
-
-      <input
-        ref={inputRef}
-        id="prompt"
-        type="text"
-        className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
-          commandExists(command) || command === ''
-            ? 'text-dark-green'
-            : 'text-dark-red'
-        }`}
-        value={command}
-        onChange={onChange}
-        autoFocus
-        onKeyDown={onSubmit}
-        autoComplete="off"
-        spellCheck="false"
-      />
+      <div className="relative">
+        <input
+          ref={inputRef}
+          id="prompt"
+          type="text"
+          className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
+            commandExists(command) || command === ''
+              ? 'text-dark-green'
+              : 'text-dark-red'
+          }`}
+          value={command}
+          onChange={onChange}
+          autoFocus
+          onKeyDown={onSubmit}
+          autoComplete="off"
+          spellCheck="false"
+        />
+        {suggestions.length > 0 && (
+          <div
+            style={{ left: suggestionBoxDistance }}
+            className={`absolute rounded bg-[${config.colors.dark.foreground}] text-[#282a36] p-2`}
+          >
+            {suggestions.map((suggestion, idx) => {
+              return <p key={idx}>{suggestion}</p>;
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

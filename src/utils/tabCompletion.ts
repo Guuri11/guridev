@@ -12,3 +12,16 @@ export const handleTabCompletion = (
     setCommand(commands[0]);
   }
 };
+
+export const showSuggestions = (
+  command: string
+) => {
+  if (command.length === 0) {
+    return [];
+  }
+  const commands = Object.keys(bin).filter((entry) =>
+    entry.startsWith(command),
+  );
+
+  return commands;
+};
